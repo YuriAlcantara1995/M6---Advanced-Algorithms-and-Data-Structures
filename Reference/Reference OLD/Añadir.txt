@@ -1,0 +1,26 @@
+Todos
+2 sat
+suffix array con todo y comentarios
+convex hul trick minimo maximo biary search
+dynamic convex hul trick
+python
+minima cantidad de operaciones para hacer un arreglo estrictamente creciente
+minima diferencia en un intervalo  	
+dominator_tree
+Floyd’s Cycle-Finding algorithm
+Towers of Hanoi
+neckclase y bracelet
+como generar soluciones de ecuacion diofanticas
+inevrso modular tourist
+ 
+
+
+Yuri
+square free
+kth substring
+Digit sum
+largest_zero_submatr
+LIS
+max_empty_rect
+min_circle
+palindrome_free_numbers

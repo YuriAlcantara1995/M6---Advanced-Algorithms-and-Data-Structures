@@ -1,0 +1,92 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+typedef pair<int,int> ii;
+
+struct PT {
+    double x,y;
+    PT (double xx=0, double yy=0){x = xx; y = yy;}
+    PT operator- (const PT &o){
+        return PT(x-o.x,y-o.y);
+    }
+    PT operator+ (const PT &o){
+        return PT(x+o.x,y+o.y);
+    }
+    PT operator* (const double k){
+        return PT(x*k,y*k);
+    }
+    PT normal(){
+        double fact = hypot(x,y);
+        return PT(x/fact,y/fact);
+    }
+} A, B, C;
+
+double dist(PT x, PT y){
+    return hypot(x.x-y.x,x.y-y.y);
+}
+
+double getArea(PT x, PT y, PT z){
+    double a = dist(x,y);
+    double b = dist(y,z);
+    double c = dist(z,x);
+    double s = (a+b+c)/2.0;
+    return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+
+int main()
+{
+    #ifdef ACMTUYO
+    freopen("a.in","r",stdin);
+    #else
+    cin.tie(0); ios_base::sync_with_stdio(false);
+    #endif
+
+    cin >> A.x >> A.y;
+    cin >> B.x >> B.y;
+    cin >> C.x >> C.y;
+
+    vector<PT> v;
+    v.push_back(A);v.push_back(B);v.push_back(C);v.push_back(A);
+
+    PT p[3][2];
+
+    for (int l=0; l < 3; l++){
+        PT A = v[l];
+        PT B = v[l+1];
+        int N; cin >> N; int d;
+        for (int i=0; i < N; i++){
+            cin >> d;
+            if (i==0){
+                p[l][0] = A+((B-A).normal())*d;
+            }
+            if (i==N-1){
+                p[l][1] = A+((B-A).normal())*d;
+            }
+        }
+    }
+
+    double res = 0;
+    res = mares,getArea(p[0][0],p[1][0],p[2][0]));
+    res = mares,getArea(p[0][0],p[1][0],p[2][1]));
+    res = mares,getArea(p[0][0],p[1][1],p[2][0]));
+    res = mares,getArea(p[0][0],p[1][1],p[2][1]));
+    res = mares,getArea(p[0][1],p[1][0],p[2][0]));
+    res = mares,getArea(p[0][1],p[1][0],p[2][1]));
+    res = mares,getArea(p[0][1],p[1][1],p[2][0]));
+    res = mares,getArea(p[0][1],p[1][1],p[2][1]));
+
+    res = mares,getArea(p[0][0],p[0][1],p[1][1]));
+    res = mares,getArea(p[0][0],p[0][1],p[2][0]));
+
+    res = mares,getArea(p[1][0],p[1][1],p[2][1]));
+    res = mares,getArea(p[1][0],p[1][1],p[0][0]));
+
+    res = mares,getArea(p[2][0],p[2][1],p[0][1]));
+    res = mares,getArea(p[2][0],p[2][1],p[1][0]));
+
+    cout << fixed << setprecision(7);
+    cout << res << "\n";
+
+    return 0;
+}

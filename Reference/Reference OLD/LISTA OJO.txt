@@ -1,0 +1,22 @@
+        Runtime Error
+1- Rangos maximos y minimos;
+2- Acceder a posiciones negativas de un arreglo;
+3- Division entre 0;
+4- Se funde la pila del sistema (DFS);
+5- Acceder a un elemento inexistente de una estructura dinamica (Cola, Pila, Vector);
+        Time Limit Exedit
+1- Ciclo infinito.
+2- No da en timpo mongo.
+        Wrong Answer
+1- El return 0;
+2- Imprimir salto de linea al final;
+3- Probar casos minimos y maximos;
+4- Poner el indice del problema a el archivo cpp (Ej: A.cpp);
+5- Entender bien el problema;
+6- Imprimiste lo que te pindeeeennn!!!.
+6- Long long?;
+7- Estas limpiando las variable y arreglos?;
+8- Moduleaste?;
+
+
+

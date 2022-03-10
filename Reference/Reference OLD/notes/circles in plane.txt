@@ -1,0 +1,3 @@
+//trace in a plane n circles that any one of them cut all the rest. Three circles 
+//can not pass through the same point. the number of regions that are limited in the plane
+n*(n-1)+2

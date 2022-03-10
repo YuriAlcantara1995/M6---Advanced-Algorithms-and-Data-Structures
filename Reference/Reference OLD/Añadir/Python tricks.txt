@@ -1,0 +1,47 @@
+0- implemetar el codigo asi
+
+def main():
+	#implementar la solucion
+	
+main()
+
+1-//para leer
+import sys
+
+a = sys.stdin.readline().slpit(' ')
+sys.stdout.write("Hello World\n")
+
+2-arrays
+v = [0] * 10 //[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] para crear un arreglo con 10 elementos inicializados en 0
+v = [[0]*N]*N matriz de N*N -> (0,N-1)
+
+3- v.append(n) -> equivalente de push_back(n)
+
+4- for i in xrange(1,n) -> for( int i = 1; i < n; i++ )
+
+5- from itertools import permutations ->importa la fincion permutations
+//para usarla
+for p in permutations([1,2,3,4])
+	print(p)//imprime todas las permutaciones de la lista pasada como param como listas
+	
+6- from itertools import combinations ->importa la funcion combinations
+v = [1,2,3,4,5]
+for c in combinations(v, 2):
+    print(" ".join(c))//imprime las combinaciones de v en 2
+
+7- a,b = b,a -> equivale swap(a,b)
+
+8- remover duplicados de una lista
+
+a = [1,2,3,4,1,2,3,4]
+a = list(set(a))
+
+9- concaternar cadenas
+a = ["a", "b", "c"]
+
+concat = ''.join(a);
+
+10- cola
+import collections
+
+help(collections.deque)

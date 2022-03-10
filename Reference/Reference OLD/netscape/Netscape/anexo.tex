@@ -1,0 +1,107 @@
+\documentclass[7pt,twocolumn, landscape, letterpaper,bfseries]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[letterpaper,includeheadfoot, top=1.2cm, bottom=0.3cm, right=0.4cm, left=0.4cm]{geometry}
+\begin{document}
+\subsection*{Formulas}
+	\begin{enumerate}
+		\item \textbf{
+			N\'umeros de Catal\'an: \\
+			$C[n] => FOR(k=0,n-1)\  C[k] * C[n-1-k]\\
+			C[n] => Comb(2*n,n) / (n + 1)\\
+			C[n] => C[n-1]*(4*n-2)/(n+1)$				 
+		}
+		\item \textbf{
+			N\'umero Desarranjo: \\
+			$d(1) = 0,\  d(2) = 1;\  
+			d(n) = (n-1)*(d(n-1) + d(n-2))$				 
+		}
+		\item \textbf{
+			Que cumpla al menos $k$ requisitos:   
+			$\sum_{i=0}^{n-k}(-i)^i\left( \begin{array}{c} k+i-1 \\ k-1 \\ \end{array} \right) S_{i+k}$
+		}
+		\item \textbf{
+			Que cumpla $k$ requisitos:
+			$\sum_{i=0}^{n-k}(-i)^i\left( \begin{array}{c} k+i \\ k \\ \end{array} \right) S_{i+k}$	 
+		}
+		\item \textbf{
+			Distancia en movimiento rectil\'ineo uniforme acelerado:\\
+			$X(t) = x_0 + v_0*t + \dfrac{a*t^2}{2}$	 
+		}
+		\item \textbf{
+			Iterar por todas las submascaras de n: $for(\ i\  = \  n;\ 
+			!i\ ;\ i\ = \ n \&\left(i-1\right) \  )$				 
+		}
+		\item \textbf{
+			Un grafo es planar si:
+			$n - m + f = 2,\ $entonces $f \leq 2n-4,\ m \leq 3n-6$ y contiene un vertice con grado $\leq 5$.
+		}
+		\item \textbf{
+			$\sum_{i=1}^{n}i^2=\dfrac{n(n+1)(2n+1)}{6},\ 
+			\sum_{i=1}^{n}i^3=\dfrac{n^2(n+1)^2}{4},$
+		}
+	\end{enumerate}
+\subsection*{Solution Ideas}
+		 \begin{enumerate}
+			\item 		Dynamic Optimizations:
+				\begin{itemize}
+					\item Convex hull optimization:\\
+						\text{ * }$dp[i] = min_{j < i} \{dp[j] + b[j]*a[i]\}$\\
+						\text{ * }$b[j] \geq b[j+1],\  a[i] \leq a[i+1]$\\
+						\text{ * $O(n^2)$ to $O(n)$}
+					\item Divide and conquer optimization:\\
+						\text{ * }$dp[i][j] = min_{k < j} \{dp[i-1][k] + C[k][j]\}$\\
+						\text{ * }$opt[i][j] \leq opt[i][j + 1]$\\
+						\text{ * $O(kn^2)$ to $O(kn\log{n})$}\\
+						\text{ * sifficient: }$C[a][c]+C[b][d] \leq C[a][d]+C[b][c], \ a \leq b \leq c \leq d \ (QI)$ 
+					\item Divide and conquer optimization:\\
+						%dp[i][j] = mini<k<j {dp[i][k]+dp[k][j]+C[i][j]}
+						\text{ * }$dp[i][j] = min_{i<k<j} \{dp[i][k] + dp[k][j] + C[i][j]\}$\\
+						\text{ * }$opt[i][j-1] \leq opt[i][j] \leq opt[i+1][j]$\\
+						\text{ * $O(n^3)$ to $O(n^2)$}\\
+						\text{ * sifficient: }$(QI) \  and \  C[b][c] \leq C[a][d],  \ a \leq b \leq c \leq d$ 
+				\end{itemize}
+			\item Optimizations\\
+				- Use bitset (/64)\\
+				- Switch order of loops (cache locality)
+			\item Procesar queries offline ( Mo$\textquoteright$s algorithm )
+			\item Sqrt decomposition
+			\item Meet in the middle
+			\item Fast Fourier Transform
+			\item Buscar cota extrema
+			\item Flujo
+		\end{enumerate}	
+\subsection*{Debugging Tips}
+	\begin{enumerate}
+		\item Stack overflow? Recursividad del Dfs.
+		\item Redondeando n\'umeros negativos?
+		\item Double
+		\item Wrong Answer?\\
+			- Quitar el freopen, \\
+			- no mezclar cin con scanf\\
+			- Ver si hay que imprimir fin de linea\\
+			- Leer nuevamente el problema.\\
+			- Ver si es multiples casos, repetir el mismo caso varias veces.\\ 
+			- long long\\
+			- Posibles Casos:\\
+				* $n = 0,n = -1,n = 1,n = 2^{31} - 1 \  o \  n = -2^{31}$\\
+				* La lista esta vac\'ia o con un solo elemento\\
+				* n is even, n is odd\\
+				* El Grafo esta vacio o contiene un solo vertice\\
+				* El Grafo es un multigrafo (lazo o multiple aristas)\\
+				* El Polygono es convexo o no\\
+		- Hay condici\'on inicial para los casos pequeños\\
+		- Estas utilizando el algoritmo correcto \\
+		- Explique su soluci\'on a alguien\\
+		- Puede que usted (o alguien más) debiera reescribir la 
+		solución?
+		\item Run-Time Error?\\
+		- Verificar el tamaño de los arreglos\\
+		- División por 0\\
+		- Verificar map, set, queue,...
+	\end{enumerate}
+	
+\end{document}

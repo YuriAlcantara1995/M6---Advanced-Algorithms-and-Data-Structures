@@ -1,0 +1,74 @@
+#include <cstdio>
+#include <cstdlib>
+
+typedef long long LL;
+
+using namespace std;
+
+const int MODULUS = 1000000000;
+const int PHI = 400000000;
+
+inline int gcd(int a, int b)
+{
+	int t;
+	while (b)
+	{
+		t = a % b;
+		a = b;
+		b = t;
+	}
+	return a;
+}
+
+inline int mod_power(LL base, LL exp)
+{
+	int result = 1;
+	base %= MODULUS;
+	for (; exp; exp >>= 1)
+	{
+		if (exp & 1) result = (result * base) % MODULUS;
+		base = (base * base) % MODULUS;
+	}
+	return result;
+}
+
+int main()
+{
+	const int MAX_SIZE = 1000100;
+	char exponent[MAX_SIZE + 1];
+
+	LL n;
+	int k;
+	int len;
+	int choices;
+	
+	while (scanf("%s%d", exponent, &k) > 0)
+	{
+		// Calculate (2^k - 2) mod M
+		choices = mod_power(2, k);
+		choices -= 2;
+		if (choices < 0) choices += MODULUS;
+		// Check if the exponent is small enough to load into an int
+		for (len = 0; exponent[len] && len < 17; len++);
+		if (len < 17)
+		{
+			// Easy case
+			n = atol(exponent);
+		}
+		else
+		{
+			// Witchcraft case
+			// Load the exponent modulo totient(M)
+			n = 0;
+			for (len = 0; exponent[len]; len++)
+			{
+				n = (10 * n + exponent[len] - '0') % PHI;
+			}
+			// Correct the exponent
+			n += PHI;
+		}
+		// Calculate result
+		choices = mod_power(choices, n);
+		printf("%d\n", choices);
+	}
+}

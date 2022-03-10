@@ -1,0 +1,9 @@
+Especificaciones de entrada y salida
+cin.tie(0) ios_base::sync_with_stdio(0);
+long long
+Casos bordes
+Rango de los arreglos
+Imprimir salto de linea al final
+Poner el indice del problema a el archivo cpp (Ej: A.cpp);
+Limpiar si es necesario
+Modulo (no modulear numeros negativos)

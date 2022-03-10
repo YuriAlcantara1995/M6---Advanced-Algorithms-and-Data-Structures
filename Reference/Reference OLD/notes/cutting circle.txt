@@ -1,0 +1,4 @@
+//the number of regions that is divided a circle after 
+//drawing all possible lines that connect n points
+
+n*n*n*n-6*n*n*n+23*n*n-18*n+24)/24
